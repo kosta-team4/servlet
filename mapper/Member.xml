@@ -4,15 +4,34 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mapper.member">
+	<insert id="insertMember" parameterType="Member">
+		<![CDATA[
+			insert into member (id,password,nickname,email) values (#{id},#{password},#{nickname},#{email})
+		]]>
+	</insert>
+	
 	<select id="selectMember" parameterType="String" resultType="Member">
 		<![CDATA[
 			select * from member where id=#{id}
 		]]>
 	</select>
 	
-	<insert id="insertMember" parameterType="Member">
+	<update id="updateMember" parameterType="Member">
 		<![CDATA[
-			insert into member (id,name,password,email,address) values (#{id},#{name},#{password},#{email},#{address})
+			update member set nickname=#{nickname},password=#{password} where id=#{id}
 		]]>
-	</insert>
+	</update>
+	
+	<select id="selectMemberId" parameterType="String" resultType="String">
+		<![CDATA[
+			select id from member where email=#{email}
+		]]>
+	</select>
+	
+	<select id="selectMemberPw" parameterType="String" resultType="String">
+		<![CDATA[
+			select password from member where id=#{id}
+		]]>
+	</select>
+	
 </mapper>

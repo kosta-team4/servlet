@@ -2,27 +2,26 @@ package dto;
 
 public class Member {
 	private String id;
-	private String name;
 	private String password;
+	private String nickname;
 	private String email;
-	private String address;
 
 	public Member() {}
 
-	public Member(String id, String name, String password, String email, String address) {
+	public Member(String id, String password, String nickname, String email) {
 		this.id = id;
-		this.name = name;
 		this.password = password;
+		this.nickname = nickname;
 		this.email = email;
-		this.address = address;
+	}
+	
+	
+	public String getNickname() {
+		return nickname;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	public String getPassword() {
@@ -39,14 +38,6 @@ public class Member {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public String getId() {
